@@ -29,3 +29,5 @@ export const ERROR_ACCESSTOKEN_NULL      = `尚未登录或登录已失效`
 export const ERROR_FINDUSER_NOEXIST      = `查询的用户不存在`
 export const ERROR_ADMINGROUP_MARKUP     = `缺少用户组标记`
 export const ERROR_ADMINUSER_MARKUP      = `缺少用户标记`
+
+export const ERROR_INFORMATION_MARKUP    = `缺少信息标记`

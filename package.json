@@ -36,5 +36,9 @@
   "scripts": {
     "init": "node ./init.js",
     "dev": "cross-env NODE_ENV=development node ."
+  },
+  "engines": {
+    "node": ">=6.9.0",
+    "npm": ">=3.0.0"
   }
 }

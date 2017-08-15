@@ -6,11 +6,13 @@ import * as auth from '../middlewares/auth'
 const router = express.Router()
 const { 
   userPolice,
-  groupPolice
+  groupPolice,
+  informationPolice
 } = mounts(path.resolve(__dirname, '../polices/api_v1'), 'police')
 const { 
   userApi,
-  groupApi
+  groupApi,
+  informationApi
 } = mounts(path.resolve(__dirname, '../api/v1'), 'api')
 
 router.post ( '/login',                          userPolice.login,         userApi.login              )
@@ -27,5 +29,11 @@ router.post ( '/admins/user/create',             auth.accessToken,         userP
 router.post ( '/admins/user/remove',             auth.accessToken,         userPolice.remove,        userApi.remove          )
 
 router.post ( '/passport/editpwd',               auth.accessToken,         userPolice.editpwd,       userApi.editpwd         )
+
+router.get  ( '/information',                    auth.accessToken,         informationApi.getList                            )
+router.post ( '/information/create',             auth.accessToken,         informationPolice.create, informationApi.create   )
+router.post ( '/information/edit/:id',           auth.accessToken,         informationPolice.edit,   informationApi.edit     )
+router.post ( '/information/remove',             auth.accessToken,         informationPolice.remove, informationApi.remove   )
+router.post ( '/information/counts',         auth.accessToken,         informationPolice.counts, informationApi.counts   )
 
 export default router
