@@ -36,6 +36,7 @@ export function create (info) {
       listData.push({
         _id   : _id,
         ...info,
+        counts : 0
       })
       fs.writeJSONSync(dataDir, listData, { spaces: 2 })
       resolve(_.find(listData, { _id }))
