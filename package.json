@@ -35,7 +35,10 @@
   },
   "scripts": {
     "init": "node ./init.js",
-    "dev": "cross-env NODE_ENV=development node ."
+    "dev": "cross-env NODE_ENV=development node .",
+    "start": "cross-env NODE_ENV=production pm2 start ./index.js --name \"iis-express-server\" && pm2 save",
+    "remove": "pm2 stop iis-express-server && pm2 delete iis-express-server",
+    "restart": "npm run remove && npm run start"
   },
   "engines": {
     "node": ">=6.9.0",
